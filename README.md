@@ -2,7 +2,7 @@
 <h2>Distribución del proyecto:</h2>
 <br/>
 - /
- 
+  
 -- frontend.html
 
 -- utilerías.js
@@ -11,10 +11,11 @@
 
 -- README.md
 <br/>
-<h2>Se desarrolló el siguiente ejercicio</h2>
+<h2>Ejercicio</h2>
 <br/>
-Ghibli films
-Crea una aplicación que liste y permita buscar películas de estudio Ghibli, el buscador debe soportar autocompletado.
+<p>Se desarrolló la solución del siguiente ejercicio:</p>
+<p>Ghibli films</p>
+<p>Crea una aplicación que liste y permita buscar películas de estudio Ghibli, el buscador debe soportar autocompletado.</p>
 <br/>
 <p>Se usó para el desarrollo, librerías de jquery y datatable además del uso de la librería autocomplete.js@10.2.6 <a href="https://tarekraafat.github.io/autoComplete.js/demo/">Autocomplete</a>  para la funcionalidad de la búsqueda autocompletada</p>
 <br/>
