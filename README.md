@@ -10,6 +10,12 @@
 -- LICENSE
 
 -- README.md
+
+<br/>
+
+<h2>Implementación</h2>
+<p>Se deben bajar los archivos <b> frontend.html y utilerías.js <b> sobre la misma carpeta y abrir el archivo HTML sobre un explorador, el funcionamiento fue testeado sobre Chrome y Firefox</p>
+
 <br/>
 <h2>Ejercicio</h2>
 <br/>
