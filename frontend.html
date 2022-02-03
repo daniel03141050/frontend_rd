@@ -8,13 +8,9 @@
 		<!-- Bootstrap CSS -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>		
 		<script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
-		
 		<link href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css" rel="stylesheet" media="all">
-		
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.6/dist/css/autoComplete.min.css">
-		
-		<script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.6/dist/autoComplete.min.js"></script>    
-		
+		<script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.6/dist/autoComplete.min.js"></script>
 		<title>Test APIRest RD</title>
 	</head>
 	<body>
@@ -35,108 +31,8 @@
 				</tr>
 			</thead>
 		</table>
-		
+		<script src="utilerias.js"></script>    
 	</body>
-	
-	<script>
-		
-		var tabla=null;
-		
-		function assignToEventsColumns(data) {
-			
-			if(tabla!==null){tabla.destroy();}
-			
-            tabla = $('#tablepeliculas').DataTable({
-                "bAutoWidth" : false,
-                "aaData" : data,
-                "columns" : [ {
-                    "data" : "title"
-                }, {
-                    "data" : "original_title_romanised"
-                }, {
-                    "data" : "description"
-                }  ]
-            })
-		}
-		
-		
-		function get_from_ws(filtro)
-		{
-			var arrayReturn = [];
-			filtro=filtro.toUpperCase();
-			$.ajax({
-					type: 'GET',
-					url: 'https://ghibliapi.herokuapp.com/films/',
-					dataType : "json",
-					success: function(data) {
-							title="";
-							$.each(
-								data,
-								function(index, arrayValores) {	
-									title=arrayValores.title.toUpperCase();
-									if( title.match(filtro) )
-									{										
-										arrayReturn.push(arrayValores);
-									}
-								}
-							);
-							console.log(data);
-							console.log(arrayReturn);
-							assignToEventsColumns(arrayReturn);
-					}
-			});
-		}
-		
-		function listar(e)
-		{
-			const keyName = e.key;
-			console.log('keydown event\n\n' + 'key: ' + keyName);
-			if(keyName==="Enter")
-			{
-				get_from_ws(document.getElementById("autoComplete").value);
-			}
-		}
-		
-		document.getElementById("autoComplete").addEventListener('keydown', listar, false);
-		
-		var arrayReturn = [];
-		$.ajax({
-				type: 'GET',
-				url: 'https://ghibliapi.herokuapp.com/films/',					
-				dataType : "json",
-				success: function(data) {
-						
-						$.each(
-							data,
-							function(index, arrayValores) {
-								arrayReturn.push(arrayValores.title);
-							}
-						);
-						
-						
-						const autoCompleteJS = new autoComplete({
-						placeHolder: "Agrega intro para buscar",
-						data: {
-							src: arrayReturn,
-							cache: true,
-						},
-						resultItem: {
-							highlight: true
-						},
-						events: {
-							input: {
-								selection: (event) => {								
-									const selection = event.detail.selection.value;
-									autoCompleteJS.input.value = selection;
-								}
-							}
-						}
-					});
-					
-				}
-		});
-		
-	</script>
 </html>
 
 
